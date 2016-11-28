@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test</title>
+	</head>
+	<body>
+		<canvas id="view" width="640" height="480" style="display:block; margin:auto"></canvas>
+		<script src="js/game.js"></script>
+		<script src="js/gfx.js"></script>
+		<script src="js/input.js"></script>
+		<script src="js/timer.js"></script>
+		<script>
+
+			var Canvas = document.getElementById("view")
+
+			GfxInit(Canvas)
+			InputInit(Canvas)
+			GameInit()
+
+			requestAnimationFrame(OnAnimFrame)
+
+			function OnAnimFrame(TimeStamp) {
+				TimerUpdate(TimeStamp / 1000)
+				InputUpdate()
+				GameUpdate()
+				GameDraw()
+				requestAnimationFrame(OnAnimFrame)
+			}
+
+		</script>
+	</body>
+</html>
