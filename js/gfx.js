@@ -37,8 +37,17 @@ function GfxColor(Color) {
 	var G = Math.floor(Color[1] * 255)
 	var B = Math.floor(Color[2] * 255)
 	Gfx.Context.fillStyle = "rgb(" + R + "," + G + "," + B + ")"
+	Gfx.Context.strokeStyle = "rgb(" + R + "," + G + "," + B + ")"
 }
 
 function GfxRect(X, Y, Width, Height) {
 	Gfx.Context.fillRect(X, Y, Width, Height)
+}
+
+function GfxLine(X, Y, toX, toY, scaleX, scaleY) {
+	Gfx.Context.beginPath()
+	Gfx.Context.moveTo(X, Y)
+	Gfx.Context.lineTo(scaleX * toX, scaleY * toY)
+	Gfx.Context.closePath()
+	Gfx.Context.stroke()
 }
